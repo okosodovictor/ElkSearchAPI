@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{81932C64-D865-4E5B-879B-B9F48FFFAF51}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartELK.Domain", "SmartELK.Domain\SmartELK.Domain.csproj", "{52F3DFA6-F43C-42BC-A144-4C66ED3866AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartELK.Infrastructure", "SmartELK.Infrastructure\SmartELK.Infrastructure.csproj", "{7455F4F9-C268-4BFE-B6F1-B96E0FD1F0C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartELK.API", "SmartELK.API\SmartELK.API.csproj", "{FCE3532A-51DA-4EDC-A45C-94E90E3A660D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartELK.Test", "SmartELK.Test\SmartELK.Test.csproj", "{F76848BA-B793-45FE-8A99-2FF6D0F95E59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{52F3DFA6-F43C-42BC-A144-4C66ED3866AC} = {81932C64-D865-4E5B-879B-B9F48FFFAF51}
+		{7455F4F9-C268-4BFE-B6F1-B96E0FD1F0C9} = {81932C64-D865-4E5B-879B-B9F48FFFAF51}
+		{FCE3532A-51DA-4EDC-A45C-94E90E3A660D} = {81932C64-D865-4E5B-879B-B9F48FFFAF51}
+		{F76848BA-B793-45FE-8A99-2FF6D0F95E59} = {81932C64-D865-4E5B-879B-B9F48FFFAF51}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52F3DFA6-F43C-42BC-A144-4C66ED3866AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52F3DFA6-F43C-42BC-A144-4C66ED3866AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52F3DFA6-F43C-42BC-A144-4C66ED3866AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52F3DFA6-F43C-42BC-A144-4C66ED3866AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7455F4F9-C268-4BFE-B6F1-B96E0FD1F0C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7455F4F9-C268-4BFE-B6F1-B96E0FD1F0C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7455F4F9-C268-4BFE-B6F1-B96E0FD1F0C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7455F4F9-C268-4BFE-B6F1-B96E0FD1F0C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCE3532A-51DA-4EDC-A45C-94E90E3A660D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCE3532A-51DA-4EDC-A45C-94E90E3A660D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCE3532A-51DA-4EDC-A45C-94E90E3A660D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCE3532A-51DA-4EDC-A45C-94E90E3A660D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F76848BA-B793-45FE-8A99-2FF6D0F95E59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F76848BA-B793-45FE-8A99-2FF6D0F95E59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F76848BA-B793-45FE-8A99-2FF6D0F95E59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F76848BA-B793-45FE-8A99-2FF6D0F95E59}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
