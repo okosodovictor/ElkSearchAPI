@@ -22,7 +22,7 @@ public class ProductManagerTest
     }
 
     [Test]
-    public async Task SearchProducts_ShouldCallSearchProductsAsync_WithCorrectParameters()
+    public async Task SearchProducts_ShouldCallSearchProductsAsync()
     {
         // Arrange
         var query = "test query";

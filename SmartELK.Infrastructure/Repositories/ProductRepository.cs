@@ -14,7 +14,7 @@ public class ProductRepository: IProductRepository
         _dbContext = dbContext;
     }
     
-    public async Task<List<Product>> GetNewOrModifiedProductsAync(DateTime lastSyncTimestamp)
+    public async Task<IEnumerable<Product>> GetNewOrModifiedProductsAync(DateTime lastSyncTimestamp)
     {
         return await _dbContext.Products
             .Include(c => c.Category)

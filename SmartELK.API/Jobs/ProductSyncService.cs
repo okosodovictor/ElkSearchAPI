@@ -10,7 +10,7 @@ public class ProductSyncService(
     ILogger<ProductSyncService> logger)
     : BackgroundService
 {
-    private DateTime _lastSyncTimestamp = DateTime.UtcNow;
+    private DateTime _lastSyncTimestamp = DateTime.UtcNow.AddDays(-10);
     private readonly ILogger<ProductSyncService> _logger = logger;
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)

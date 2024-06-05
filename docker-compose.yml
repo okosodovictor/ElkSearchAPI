@@ -1,9 +1,15 @@
-﻿version: "3.3"
-
-services:
+﻿services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
     environment:
+      - cluster.name=es-cluster
+      - node.name=es-node-1
+      - path.data=/usr/share/elasticsearch/data
+      - http.port=9200
+      - http.host=0.0.0.0
+      - transport.host=127.0.0.1
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - discovery.type=single-node
       - ELASTIC_PASSWORD=redmond
       - xpack.security.enabled=true
@@ -11,9 +17,12 @@ services:
       - "9200:9200"
       - "9300:9300"
     volumes:
-      - esdata1:/usr/share/elasticsearch/data
-      - ./config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-
+      - data01:/usr/share/elasticsearch/data
+    healthcheck:
+      interval: 20s
+      retries: 10
+      test: curl -s http://172.0.0.1:9200/_cluster/health | grep -vq '"status":"red"'
+        
   kibana:
     image: docker.elastic.co/kibana/kibana:7.2.0
     environment:
@@ -24,7 +33,11 @@ services:
       - "5601:5601"
     depends_on:
       - elasticsearch
-        
+    healthcheck:
+      interval: 10s
+      retries: 20
+      test: curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null http://172.0.0.1:5601/api/status
+
   postgres:
     image: postgres:14-alpine
     container_name: postgres_demo
@@ -33,11 +46,11 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=ProductDB
     volumes:
-      - postgres-db:/data/postgres
+      - postgres-db:/var/lib/postgresql/data
     ports:
-      - "5433:5432"
-
+      - "5435:5432"
+      
 volumes:
-  esdata1:
+  data01:
   postgres-db:
     driver: local
