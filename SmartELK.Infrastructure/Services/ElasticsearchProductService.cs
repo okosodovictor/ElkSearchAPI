@@ -1,3 +1,4 @@
+using System.Text;
 using Nest;
 using SmartELK.Domain.Documents;
 using SmartELK.Domain.Entities;
@@ -107,33 +108,25 @@ public class ElasticsearchProductService: IElasticsearchProductService
     
     private string CleanSearchPhrase(string searchPhrase)
     {
-        var charsToEscape = new char[] {};
-        var charsToRemove = new char[] {
-            ',', '.'
-        };
-        var charsToSkip = new char[] {
-            '#', '$', '%', '<', '>', '+', '-', '=', '&', '|', '|', '!', '(',
-            ')', '{', '}', '[', ']', '^', '\"', '~', '*', '?', ':', '\\', '/'
+        var charsToRemove = new HashSet<char> { ',', '.' };
+        var charsToSkip = new HashSet<char> {
+            '#', '$', '%', '<', '>', '+', '-', '=', '&', '|', '!', '(', ')',
+            '{', '}', '[', ']', '^', '\"', '~', '*', '?', ':', '\\', '/'
         };
 
-        var cleanPhrase = "";
-        for (int i = 0; i < searchPhrase.Length; i++)
+        var cleanPhrase = new StringBuilder();
+        foreach (var ctx in searchPhrase)
         {
-            if (charsToSkip.Contains(searchPhrase[i]))
+            if (charsToSkip.Contains(ctx))
             {
-                cleanPhrase += ' ';
+                cleanPhrase.Append(' ');
             }
-            else if (charsToEscape.Contains(searchPhrase[i]))
+            else if (!charsToRemove.Contains(ctx))
             {
-                cleanPhrase += '\\';
-                cleanPhrase += searchPhrase[i];
-            }
-            else if (!charsToRemove.Contains(searchPhrase[i]))
-            {
-                cleanPhrase += searchPhrase[i];
+                cleanPhrase.Append(ctx);
             }
         }
-        cleanPhrase = cleanPhrase.Trim();
-        return cleanPhrase;
+
+        return cleanPhrase.ToString().Trim();
     }
 }
