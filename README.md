@@ -46,4 +46,10 @@ The solution consists of four projects:
     * Once the SmartELK.API project is running, you can access the Swagger UI to interact with the API endpoints.
     * Open a web browser and navigate to the following URL:bashCopy code  http://localhost:5128/swagger/index.html  
     * Swagger UI provides a beautiful interface to test the API endpoints. You can explore the available endpoints, submit requests, and view responses directly within the browser.
+  
+    * Sample Request:
+  
+   curl -X 'GET' \
+  'http://localhost:5128/Product/search?query=Authentic&category=Confections&minPrice=28&maxPrice=45' \
+  -H 'accept: */*'
 
