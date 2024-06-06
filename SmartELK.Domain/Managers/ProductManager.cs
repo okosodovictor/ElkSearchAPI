@@ -8,13 +8,10 @@ namespace SmartELK.Domain.Managers;
 public class ProductManager : IProductManager
 {
     private readonly IElasticsearchProductService _service;
-    private readonly ICategoryRepository _repository;
 
-    public ProductManager(IElasticsearchProductService service, 
-        ICategoryRepository repository)
+    public ProductManager(IElasticsearchProductService service)
     {
         _service = service;
-        _repository = repository;
     }
 
     public async Task<IEnumerable<ProductDocument>> SearchProducts(string query, string category, decimal? minPrice = null,
