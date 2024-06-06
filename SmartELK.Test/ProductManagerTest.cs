@@ -18,7 +18,7 @@ public class ProductManagerTest
     {
         _mockElasticsearchProductService = new Mock<IElasticsearchProductService>();
         _mockCategoryRepository = new Mock<ICategoryRepository>();
-        _productManager = new ProductManager(_mockElasticsearchProductService.Object, _mockCategoryRepository.Object);
+        _productManager = new ProductManager(_mockElasticsearchProductService.Object);
     }
 
     [Test]
