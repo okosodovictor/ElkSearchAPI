@@ -4,5 +4,5 @@ namespace SmartELK.Domain.Interface.Repository;
 
 public interface IProductRepository
 {
-    Task<IEnumerable<Product>> GetNewOrModifiedProductsAync(DateTime lastSyncTimestamp);
+    Task<List<Product>> GetNewOrModifiedProductsAync(DateTime lastSyncTimestamp);
 }
