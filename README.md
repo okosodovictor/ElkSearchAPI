@@ -33,7 +33,7 @@ The solution consists of four projects:
       
 5. Execute EF Core Database Migration:
     * Open a command line interface and navigate to the SmartELK.API directory or set up the project as the startup project in your editor.
-    * Run the following command to execute EF Core database migration files:cssCopy code  dotnet ef database update --project SmartELK.Infrastructure/SmartELK.Infrastructure.csproj --startup-project SmartELK.API/SmartELK.API.csproj --context SmartELK.Infrastructure.Database.ProductsContext --configuration Debug --verbose 20240604160729_Initial
+    * Run the following command to execute EF Core database migration files:cssCopy code  dotnet ef database update --verbose
        
     * Ensure that the migration process completes successfully without any errors.
       
