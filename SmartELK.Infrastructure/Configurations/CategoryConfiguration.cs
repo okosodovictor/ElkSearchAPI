@@ -1,7 +1,6 @@
 using SmartELK.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
 namespace SmartELK.Infrastructure.Configurations;
 
 public class CategoryConfiguration: IEntityTypeConfiguration<Category>
